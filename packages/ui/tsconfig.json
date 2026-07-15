@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",                 
+    "moduleResolution": "bundler",
+    "resolvePackageJsonImports": true,
+    "jsx": "react-jsx",                 
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "types": ["vitest/globals"]
+  },
+  "include": ["src", "vitest.setup.ts"],
+  "exclude": ["node_modules"]
+}
