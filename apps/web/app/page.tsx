@@ -1,5 +1,10 @@
-import { ButtonPrimary } from "@membership/ui";
+import { Header } from '@/components/header';
+import { ButtonPrimary } from '@membership/ui';
 
 export default function Home() {
-  return <ButtonPrimary title="Hello" />
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
