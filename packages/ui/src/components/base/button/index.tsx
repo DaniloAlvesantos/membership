@@ -1,25 +1,12 @@
 import { ComponentPropsWithRef } from 'react';
 import { Button } from '../../ui/button';
-import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '#lib/utils';
 
-export interface ButtonPrimaryProps
-  extends ComponentPropsWithRef<'button'>, VariantProps<typeof variants> {
+export interface ButtonPrimaryProps extends ComponentPropsWithRef<
+  typeof Button
+> {
   title?: string;
 }
-
-const variants = cva('transition-colors duration-200', {
-  variants: {
-    variant: {
-      default: 'bg-app-green-500 hover:bg-app-green-600',
-      outline:
-        'border-border bg-none hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground',
-    },
-  },
-  defaultVariants: {
-    variant: 'default',
-  },
-});
 
 export const ButtonPrimary = ({
   children,
@@ -29,7 +16,17 @@ export const ButtonPrimary = ({
   ...props
 }: ButtonPrimaryProps) => {
   return (
-    <Button className={cn(variants({ variant }), className)} {...props}>
+    <Button
+      variant={variant}
+      {...props}
+      className={cn(
+        'p-4.5 cursor-pointer',
+        variant === 'default' && 'bg-app-green-500 hover:bg-app-green-600',
+        variant === 'outline' &&
+          'border-border bg-none hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground',
+        className,
+      )}
+    >
       {children ?? title}
     </Button>
   );

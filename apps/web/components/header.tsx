@@ -18,14 +18,14 @@ export const Header = ({
 }: HeaderProps) => {
   return (
     <header className="flex items-center justify-between p-4">
-      <span>SubClub</span>
-      <nav id="navigation" className="flex items-center gap-3">
+      <span className='font-bold text-lg'>SubClub</span>
+      <nav id="navigation" className="hidden md:flex items-center gap-3">
         {navigation.map((item, i) => (
           <NavigationItem key={item.label + i} {...item} />
         ))}
       </nav>
 
-      <nav id="cta" className="flex items-center gap-3">
+      <nav id="cta" className="hidden md:flex items-center gap-3">
         {cta.map((item, i) => (
           <NavigationItem key={item.label + i} {...item} />
         ))}

@@ -5,8 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-app-green-500:#10B981;
+  --color-app-green-500:#006C49;
   --color-app-green-600:#00885D;
+  --color-app-green-300:#6BF6BA;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
