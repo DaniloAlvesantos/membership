@@ -1,56 +1,65 @@
 import { Header } from '@/components/header';
-import {
-  AvatarGroupPrimary,
-  BadgePrimary,
-  ButtonPrimary,
-} from '@membership/ui';
-import { CirclePlay } from 'lucide-react';
+import { HeroView } from '@/components/layout/views/landing-page/hero';
+import { BanknoteCheck, Box, ChartNoAxesCombined } from 'lucide-react';
+
+const cardsData = [
+  {
+    backgroundColor: '#6CF8BB',
+    icon: BanknoteCheck,
+    iconColor: '#00714D',
+    title: 'Automated Biling',
+    description:
+      'Stop chasing payments. Our secure engine handles recurring charges, failed payment recovery, and automated invoicing globally.',
+  },
+  {
+    backgroundColor: '#D3E4FE',
+    icon: ChartNoAxesCombined,
+    iconColor: '#070809',
+    title: 'Member Insights',
+    description:
+      'Understand your churn, lifetime value, and engagement with deep analytics that help you make smarter business decisions.',
+  },
+  {
+    backgroundColor: '#DFEBEC',
+    icon: Box,
+    iconColor: '#42927A',
+    title: 'Seamless Fulfillment',
+    description:
+      'From warehouse to doorstep. Track shipments, manage stock levels, and provide your members with real-time delivery updates.',
+  },
+];
 
 export default function Home() {
   return (
     <>
       <Header />
-      <section id="hero" className="px-4 py-8 text-zinc-700">
-        <div className="w-xl space-y-4">
-          <BadgePrimary title="The all-in-one" />
-          <h2 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-            Scale Your Subscription
-            <i className="text-app-green-500"> Club with Ease</i>
-          </h2>
-          <p>
-            Effortlessly manage your members, automate recurring billing, and
-            streamline global fulfillment—all within a single, intuitive
-            dashboard designed for growth.
+      <HeroView />
+      <section id="about" className="py-24 bg-[#EFF4FF] ">
+        <div className="text-center mb-4 space-y-2">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">
+            Powerful Tools for Serious Growth
+          </h3>
+          <p className="w-md mx-auto">
+            Focus on building your community while we handle the technical heavy
+            lifting of your subscription business.
           </p>
-          <div className="flex items-center gap-2">
-            <ButtonPrimary
-              title="Get Stared Free"
-              className="p-7 shadow-xl shadow-app-green-500/20"
-            />
-            <ButtonPrimary variant="outline" className="p-7">
-              <CirclePlay /> Watch Demo
-            </ButtonPrimary>
-          </div>
-          <div className="flex items-center gap-2">
-            <AvatarGroupPrimary
-              size="lg"
-              avatars={[
-                {
-                  url: 'https://plus.unsplash.com/premium_photo-1688350808212-4e6908a03925?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',
-                },
-                {
-                  url: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D',
-                },
-                {
-                  url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHVzZXIlMjBwcm9maWxlfGVufDB8fDB8fHww',
-                },
-              ]}
-            />
-            <span>
-              Trusted by <strong className="text-black">2,500+</strong> club
-              owners worldwide
-            </span>
-          </div>
+        </div>
+        <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4 gap-2 md:gap-4">
+          {cardsData.map((data, i) => (
+            <div
+              key={data.backgroundColor + i}
+              className="bg-white hover:shadow-md border-2 border-zinc-300 rounded-3xl p-8 transition-shadow"
+            >
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                style={{ backgroundColor: data.backgroundColor }}
+              >
+                <data.icon color={data.iconColor} />
+              </div>
+              <h4 className="font-bold text-xl md:text-2xl mb-2">{data.title}</h4>
+              <p className="text-sm md:text-base">{data.description}</p>
+            </div>
+          ))}
         </div>
       </section>
     </>
