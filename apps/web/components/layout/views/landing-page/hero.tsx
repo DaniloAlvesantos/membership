@@ -31,13 +31,13 @@ export const HeroView = () => {
   return (
     <section
       id="hero"
-      className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 px-4 md:px-8 lg:px-16 py-8 text-zinc-700"
+      className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 py-24 px-4 md:px-8 lg:px-16 text-zinc-700"
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="w-xl space-y-4"
+        className="space-y-4"
       >
         <motion.div variants={itemVariants}>
           <BadgePrimary title="The all-in-one" />

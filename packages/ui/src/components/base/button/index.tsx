@@ -23,7 +23,7 @@ export const ButtonPrimary = ({
         'p-4.5 cursor-pointer',
         variant === 'default' && 'bg-app-green-500 hover:bg-app-green-600',
         variant === 'outline' &&
-          'border-border bg-none hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground',
+          'border-border bg-transparent hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground',
         className,
       )}
     >
