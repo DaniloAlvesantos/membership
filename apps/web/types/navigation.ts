@@ -12,17 +12,18 @@ export const defaultNativations: Navigation[] = [
     label: 'Dashboard',
     href: '/dashboard',
   },
+
   {
-    label: 'Benefits',
-    href: '#benefits',
+    label: 'About',
+    href: '#about',
   },
   {
-    label: 'History',
-    href: '#history',
+    label: 'Features',
+    href: '#features',
   },
   {
     label: 'Princing',
-    href: '#pricing',
+    href: '/pricing',
   },
 ];
 

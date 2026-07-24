@@ -1,25 +1,9 @@
-const featuresData = [
-  {
-    title: 'Connect Your Store',
-    description:
-      'Import your existing products and member lists with a single click. We integrate with all major e-commerce platforms.',
-  },
-  {
-    title: 'Design Your Tiers',
-    description:
-      'Configure flexible subscription models, from monthly boxes to digital-only access levels with tiered pricing.',
-  },
-  {
-    title: 'Go Live & Scale',
-    description:
-      'Launch your portal and watch your community grow. Use our automated tools to keep members happy and retained.',
-  },
-];
+import { featuresData } from '@/constants/content';
 
 export const FeaturesView = () => {
   return (
     <section id="features" className="py-24 px-4 md:px-8 lg:px-16">
-      <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
+      <h2 className="text-xl sm:text-2xl md:text-3xl">
         How SubClub Empowers Your Brand
       </h2>
       <div className="flex flex-col lg:flex-row gap-16 items-center mt-8">
@@ -30,9 +14,7 @@ export const FeaturesView = () => {
                 {String(index + 1).padStart(2, '0')}
               </div>
               <div className="">
-                <h4 className="font-bold text-xl md:text-2xl">
-                  {feature.title}
-                </h4>
+                <h4 className="text-xl md:text-2xl">{feature.title}</h4>
                 <p className="text-sm md:text-base">{feature.description}</p>
               </div>
             </div>

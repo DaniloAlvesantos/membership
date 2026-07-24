@@ -13,7 +13,7 @@ export const CTAView = () => {
         transition={{ duration: 0.4, ease: 'easeOut' }}
         className="max-w-[80rem] bg-app-green-500 mx-auto rounded-[3rem] p-12 md:p-24 text-center relative z-10 overflow-hidden shadow-2xl will-change-transform"
       >
-        <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8">
+        <h2 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-8">
           Ready to Build Your <br className="hidden md:block" />
           Subscription Empire?
         </h2>

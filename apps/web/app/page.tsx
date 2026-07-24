@@ -1,4 +1,3 @@
-import { Header } from '@/components/header';
 import { AboutView } from '@/components/layout/views/landing-page/about';
 import { CTAView } from '@/components/layout/views/landing-page/cta';
 import { FeaturesView } from '@/components/layout/views/landing-page/features';
@@ -8,7 +7,6 @@ import { ReviewsView } from '@/components/layout/views/landing-page/reviews';
 export default function Home() {
   return (
     <>
-      <Header />
       <HeroView />
       <AboutView />
       <FeaturesView />

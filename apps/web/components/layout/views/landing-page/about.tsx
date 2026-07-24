@@ -1,34 +1,7 @@
 'use client';
 
-import { BanknoteCheck, Box, ChartNoAxesCombined } from 'lucide-react';
+import { aboutCardsData } from '@/app/constants/content';
 import { motion } from 'motion/react';
-
-const cardsData = [
-  {
-    backgroundColor: '#6CF8BB',
-    icon: BanknoteCheck,
-    iconColor: '#00714D',
-    title: 'Automated Billing',
-    description:
-      'Stop chasing payments. Our secure engine handles recurring charges, failed payment recovery, and automated invoicing globally.',
-  },
-  {
-    backgroundColor: '#D3E4FE',
-    icon: ChartNoAxesCombined,
-    iconColor: '#070809',
-    title: 'Member Insights',
-    description:
-      'Understand your churn, lifetime value, and engagement with deep analytics that help you make smarter business decisions.',
-  },
-  {
-    backgroundColor: '#DFEBEC',
-    icon: Box,
-    iconColor: '#42927A',
-    title: 'Seamless Fulfillment',
-    description:
-      'From warehouse to doorstep. Track shipments, manage stock levels, and provide your members with real-time delivery updates.',
-  },
-];
 
 export const AboutView = () => {
   return (
@@ -40,7 +13,7 @@ export const AboutView = () => {
         transition={{ duration: 0.5, ease: 'easeOut' }}
         className="text-center mb-12 space-y-2 px-4"
       >
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">
+        <h3 className="text-xl sm:text-2xl md:text-3xl">
           Powerful Tools for Serious Growth
         </h3>
         <p className="max-w-md mx-auto text-zinc-600">
@@ -50,7 +23,7 @@ export const AboutView = () => {
       </motion.div>
 
       <div className="p-4 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {cardsData.map((data, i) => (
+        {aboutCardsData.map((data, i) => (
           <motion.div
             key={data.title}
             initial={{ y: 35, opacity: 0 }}
@@ -75,7 +48,7 @@ export const AboutView = () => {
             >
               <data.icon color={data.iconColor} size={22} />
             </div>
-            <h4 className="font-bold text-xl md:text-2xl mb-2 text-black">
+            <h4 className="text-xl md:text-2xl mb-2 text-black">
               {data.title}
             </h4>
             <p className="text-sm md:text-base text-zinc-600 leading-relaxed">

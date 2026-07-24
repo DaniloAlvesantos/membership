@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import { usePathname } from 'next/navigation';
 
 interface HeaderProps {
   navigation?: Navigation[];
@@ -23,6 +24,7 @@ export const Header = ({
 }: HeaderProps) => {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -33,12 +35,18 @@ export const Header = ({
 
   return (
     <header className="flex items-center justify-between p-4 w-full">
-      <span className="font-bold text-lg">SubClub</span>
+      <Link className="font-bold text-lg" href="/">
+        SubClub
+      </Link>
 
-      <div className="hidden md:flex items-center gap-6">
+      <div className="hidden md:flex md:w-full md:items-center md:justify-between md:ml-4 lg:ml-8">
         <nav id="navigation" className="flex items-center gap-3">
           {navigation.map((item, i) => (
-            <NavigationItem key={item.label + i} {...item} />
+            <NavigationItem
+              key={item.label + i}
+              {...item}
+              isSelected={pathname === item.href}
+            />
           ))}
         </nav>
 
@@ -105,6 +113,7 @@ export const Header = ({
                         key={item.label + i}
                         {...item}
                         onClick={closeMenu}
+                        isSelected={pathname === item.href}
                       />
                     ))}
                   </nav>
@@ -135,6 +144,7 @@ type NavigationItemProps = {
   href: string;
   isButton?: boolean;
   onClick?: () => void;
+  isSelected?: boolean;
 };
 
 const NavigationItem = ({
@@ -142,6 +152,7 @@ const NavigationItem = ({
   label,
   isButton,
   onClick,
+  isSelected,
 }: NavigationItemProps) => {
   if (isButton) {
     return (
@@ -155,7 +166,7 @@ const NavigationItem = ({
     <Link
       href={href}
       onClick={onClick}
-      className="hover:text-app-green-500 transition-colors duration-300 relative before:content-[''] before:absolute before:bottom-[2px] before:left-0 before:h-px before:transition-all before:duration-300 before:w-0 before:bg-app-green-500 hover:before:w-full"
+      className={`${isSelected ? 'text-app-green-500' : ''} hover:text-app-green-500 transition-colors duration-300 relative before:content-[''] before:absolute before:bottom-[2px] before:left-0 before:h-px before:transition-all before:duration-300 before:w-0 before:bg-app-green-500 hover:before:w-full`}
     >
       {label}
     </Link>
